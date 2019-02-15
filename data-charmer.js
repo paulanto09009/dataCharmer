@@ -1,50 +1,24 @@
-let employFile2 = '';
+var fs = require('fs');
+
+  let newArr = [];
+  let newArr2 = [];
+  
+fs.readFile('employFile2.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+
+  let arraydat = data.split('\n');
+
+  let arr = arraydat;
 
 
-// Employee File 1
-function processFile(inputFile) {
-    var fs = require('fs'),
-        readline = require('readline'),
-        instream = fs.createReadStream(inputFile),
-        outstream = new (require('stream'))(),
-        rl = readline.createInterface(instream, outstream);
-     
-    rl.on('line', function (line) {
-        employFile2 = console.log(line.replace(/[.,\s,(),']/g, ' '));
-    });
 
-}
-processFile('employFile1.txt');
+  while (arr.length) newArr.push(arr.splice(0, 1));
 
-/*
-//Employee File 2
-function processFile2(inputFile) {
-    var fs = require('fs'),
-        readline = require('readline'),
-        instream = fs.createReadStream(inputFile),
-        outstream = new (require('stream'))(),
-        rl = readline.createInterface(instream, outstream);
-     
-    rl.on('line', function (line) {
-        employFile2 = console.log(line.split());
-    });
+  for (var i = 0; i < newArr.length; i++) {
+    console.log(newArr[i]);
+    newArr.splice(0, 1);
 
-}
-processFile2('employFile2.txt');
-*/
-/*
-//Employee File 3
-function processFile3(inputFile) {
-    var fs = require('fs'),
-        readline = require('readline'),
-        instream = fs.createReadStream(inputFile),
-        outstream = new (require('stream'))(),
-        rl = readline.createInterface(instream, outstream);
-     
-    rl.on('line', function (line) {
-        employFile2 = console.log(line.split());
-    });
+  }
+  
+})
 
-}
-processFile2('employFile3.txt');
-*/
