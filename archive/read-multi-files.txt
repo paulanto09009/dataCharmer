@@ -1,0 +1,18 @@
+const readMultipleFiles = require('read-multiple-files');
+
+var files = ['1.html', '2.html', '3.html'];
+
+console.log("\n");
+
+readMultipleFiles(files, 'utf8', function(err, inputFiles) {
+  if(err) {
+    console.log("Read Error: " + err);
+  }
+
+  let fileOne = inputFiles[0];
+  let fileTwo = inputFiles[1];
+
+  console.log(fileOne);
+  console.log(fileTwo);
+
+});

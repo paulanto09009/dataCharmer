@@ -1,0 +1,15 @@
+var fs = require('fs');
+
+var async = require('async'),
+  fs = require('fs'),
+  files = ['employFile1.txt', 'employFile2.txt'];
+
+async.map(files, fs.readFile, function(err, files) {
+  if (err) {
+    throw err;
+  }
+
+  files.forEach(function(file) {
+    console.log(file);
+  });
+});
