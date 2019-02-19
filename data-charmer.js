@@ -28,7 +28,7 @@ for (var i = 0; i < departmentId.length; i++) {
   for (var j = 0; j < salaries[i].length; j++) {
     totalSalaries += salaries[i][j];
     grandTotalSalaries += salaries[i][j];
-    console.log(`   $${salaries[i][j]}  - ${employeeName[i][j]}`);
+    console.log(`   Salary: $${salaries[i][j]} - Name: ${employeeId[i][j]} ${employeeName[i][j]}`);
   }
   console.log(`-----------------------------------------\nTotal Salaries for ${departments[i]}: $${totalSalaries}\n-----------------------------------------`)
 }
