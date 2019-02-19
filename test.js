@@ -12,28 +12,31 @@ fs.readFile('dataFile1.txt', 'utf8', function(err, data) {
     data1Id.push(dataLoop[i].substring(0, 6).replace(/[(,),']/g, ''));
     data1Name.push(dataLoop[i].substring(50, 20).replace(/[(,),']/g, ''));
   }
-  
+
 }); // ** end of dataFile1.txt readline
 
-  fs.readFile('dataFile2.txt', 'utf8', function(err, data) {
-    if (err) throw err;
-    let dataLoop = data.split('\n')
-    for (let i = 0; i < dataLoop.length; i++) {
-      data2Id.push(dataLoop[i].substring(0, 6).replace(/[(,),']/g, ''));
-      data2Dept.push(dataLoop[i].substring(12, 6).replace(/[(,),']/g, ''));
+fs.readFile('dataFile2.txt', 'utf8', function(err, data) {
+  if (err) throw err;
+  let dataLoop = data.split('\n')
+  for (let i = 0; i < dataLoop.length; i++) {
+    data2Id.push(dataLoop[i].substring(0, 6).replace(/[(,),']/g, ''));
+    data2Dept.push(dataLoop[i].substring(12, 6).replace(/[(,),']/g, ''));
   }
-  
-  salaryReport();
-  
+
+  outputFile1();
+
 }); // ** end of file2DataCollection
 
 
 
-
-function salaryReport() {
+function outputFile1() {
   for (var i = 0; i < data1Id.length; i++) {
     for (var j = 0; j < data1Name[i][j].length; j++) {
-      console.log(data1Id[i], data1Name[i]);
+    }
+  }
+  for (var i = 0; i < data2Id.length; i++) {
+    for (var j = 0; j < data2Dept[i][j].length; j++) {
+      console.log(data2Id[i], data2Dept[i],data1Id[i], data1Name[i]);
     }
   }
 }
@@ -41,24 +44,7 @@ function salaryReport() {
 
 
 
-
 /*
-
-function file2DataCollection() {
-  fs.readFile('dataFile2.txt', 'utf8', function(err, data) {
-    if (err) throw err;
-
-    let dataLoop = data.split('\n')
-    for (let i = 0; i < dataLoop.length; i++) {
-
-      data2Id.push(dataLoop[i].substring(0, 6).replace(/[(,),']/g, ''));
-      data2Dept.push(dataLoop[i].substring(12, 6).replace(/[(,),']/g, ''));
-
-    }
-  })
-} // ** end of file2DataCollection
-
-
 function file3DataCollection() {
   fs.readFile('dataFile3.txt', 'utf8', function(err, data) {
     if (err) throw err;
@@ -76,6 +62,4 @@ function file3DataCollection() {
     }
   })
 } // ** end of file3DataCollection
-
-
 */
