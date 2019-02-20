@@ -43,25 +43,6 @@ function test() {
   }); // ** end of dataFile1.txt readline
 
 
-
-  fs.readFile('dataFile2.txt', 'utf8', function(err, data) {
-    if (err) throw err;
-    let dataLoop = data.split('\n')
-    for (let i = 0; i < dataLoop.length; i++) {
-      data2Id.push(dataLoop[i].substring(0, 6).replace(/[(,),']/g, ''));
-      data2Dept.push(dataLoop[i].substring(12, 6).replace(/[(,),']/g, ''));
-    }
-    for (var i = 0; i < data2Dept.length; i++) {
-      for (var j = 0; j < dataDeptId.length; j++) {
-        if (data2Dept[i] == dataDeptId[j]) {
-          console.log('test', data1Name[i], dataDeptId[j], data2Dept[i], dataDeptName[j]);
-        }
-      }
-    }
-  }); // ** end of file2DataCollection
-
-
-
   fs.readFile('dataFile3.txt', 'utf8', function(err, data) {
     if (err) throw err;
     let dataLoop = data.split('\n')
@@ -80,6 +61,25 @@ function test() {
       }
     }
   }); // ** end of file3DataCollection
+
+
+  fs.readFile('dataFile2.txt', 'utf8', function(err, data) {
+    if (err) throw err;
+    let dataLoop = data.split('\n')
+    for (let i = 0; i < dataLoop.length; i++) {
+      data2Id.push(dataLoop[i].substring(0, 6).replace(/[(,),']/g, ''));
+      data2Dept.push(dataLoop[i].substring(12, 6).replace(/[(,),']/g, ''));
+    }
+    for (var i = 0; i < data2Dept.length; i++) {
+      for (var j = 0; j < dataDeptId.length; j++) {
+        if (data2Dept[i] == dataDeptId[j]) {
+          console.log('test', data1Name[i], dataDeptId[j], data2Dept[i], dataDeptName[j], data3Id[i], data3Salary[i], data3Date[i]);
+        }
+      }
+    }
+  }); // ** end of file2DataCollection
+
+
 
 } // ** end of function **
 
